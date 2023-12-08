@@ -45,6 +45,7 @@ export default function Admin(props) {
     return activeNavbar;
   };
   const getRoutes = (routes) => {
+    console.log(routes);
     return routes.map((prop, key) => {
       if (prop.layout === "/admin") {
         return (
@@ -70,7 +71,7 @@ export default function Admin(props) {
           <div className="h-full">
             <Navbar
               onOpenSidenav={() => setOpen(true)}
-              logoText={"Horizon UI Tailwind React"}
+              logoText={"Analah Insurance "}
               brandText={currentRoute}
               secondary={getActiveNavbar(routes)}
               {...rest}
@@ -81,7 +82,7 @@ export default function Admin(props) {
 
                 <Route
                   path="/"
-                  element={<Navigate to="/admin/default" replace />}
+                  element={<Navigate to="/pos/training" replace />}
                 />
               </Routes>
             </div>
