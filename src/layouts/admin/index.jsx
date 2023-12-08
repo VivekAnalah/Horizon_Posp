@@ -18,14 +18,17 @@ export default function Admin(props) {
   }, []);
   React.useEffect(() => {
     getActiveRoute(routes);
+    
   }, [location.pathname]);
 
   const getActiveRoute = (routes) => {
     let activeRoute = "Main Dashboard";
     for (let i = 0; i < routes.length; i++) {
+      console.log(routes[i].alterPath, "getActiveRoute")
+      
       if (
         window.location.href.indexOf(
-          routes[i].layout + "/" + routes[i].path
+          routes[i].alterPath + "/" + routes[i].path
         ) !== -1
       ) {
         setCurrentRoute(routes[i].name);
@@ -36,8 +39,9 @@ export default function Admin(props) {
   const getActiveNavbar = (routes) => {
     let activeNavbar = false;
     for (let i = 0; i < routes.length; i++) {
+      console.log(routes[i].alterPath, "getActiveNavbar");
       if (
-        window.location.href.indexOf(routes[i].layout + routes[i].path) !== -1
+        window.location.href.indexOf(routes[i].alterPath + routes[i].path) !== -1
       ) {
         return routes[i].secondary;
       }
@@ -45,9 +49,10 @@ export default function Admin(props) {
     return activeNavbar;
   };
   const getRoutes = (routes) => {
-    console.log(routes);
+   
     return routes.map((prop, key) => {
       if (prop.layout === "/admin") {
+        console.log(prop.path)
         return (
           <Route path={`/${prop.path}`} element={prop.component} key={key} />
         );
@@ -82,7 +87,7 @@ export default function Admin(props) {
 
                 <Route
                   path="/"
-                  element={<Navigate to="/pos/training" replace />}
+                  element={<Navigate to="/admin/training" replace />}
                 />
               </Routes>
             </div>
