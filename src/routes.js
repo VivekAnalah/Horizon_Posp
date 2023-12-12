@@ -27,7 +27,6 @@ const routes = [
   {
     name: "Training",
     layout: "/admin",
-    alterPath: "pos",
     path: "training",
     icon: <MdImportContacts className="h-6 w-6" />,
     component: <MainDashboard />,
@@ -35,7 +34,6 @@ const routes = [
   {
     name: "Examination",
     layout: "/admin",
-    alterPath: "pos",
     path: "Examination",
     icon: <MdAssignment className="h-6 w-6" />,
     component: <NFTMarketplace />,
@@ -44,7 +42,6 @@ const routes = [
   {
     name: "Certification",
     layout: "/admin",
-    alterPath: "pos",
     icon: <MdAssignmentTurnedIn className="h-6 w-6" />,
     path: "Certification",
     component: <DataTables />,
